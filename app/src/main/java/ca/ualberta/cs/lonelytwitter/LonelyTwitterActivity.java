@@ -1,5 +1,20 @@
-package ca.ualberta.cs.lonelytwitter;
+/*
+ * Class Name : LonelyTwitterActivity
+ *
+ * Version: V 1.0
+ *
+ * Date: Sept 28, 2017
+ *
+ * Copyright (x) Team X, CMPUT301, University of Alberta - All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the code behaviour of students.
+ */
 
+package ca.ualberta.cs.lonelytwitter;
+/**
+ *Represents a LonelyTwitterActivity
+ *@author guanfang
+ *@version 1.0
+ *@see android.app.Activity
+ */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -26,25 +41,27 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class LonelyTwitterActivity extends Activity {
-
+	//We create file, edittext, listview, arraylist and arrayadapter
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
-
 	private ArrayList<Tweet> tweetList;
 	private ArrayAdapter<Tweet> adapter;
 	
 	/** Called when the activity is first created. */
 	@Override
+
 	public void onCreate(Bundle savedInstanceState) {
+		//init call
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
+		//init botton
 		bodyText = (EditText) findViewById(R.id.body);
 		Button saveButton = (Button) findViewById(R.id.save);
 		Button clearButton = (Button) findViewById(R.id.clear);
+		//init listview
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
-
+		//set action on button click
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -61,6 +78,7 @@ public class LonelyTwitterActivity extends Activity {
 
 			}
 		});
+		//set action on button click
 		clearButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -78,6 +96,7 @@ public class LonelyTwitterActivity extends Activity {
 	}
 
 	@Override
+
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
